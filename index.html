@@ -26,7 +26,7 @@
             </nav>
             <div class="header-text">
                 <p>Software Engineer</p>
-                <h1>Hi I'm <span>Ndjekornom</span>  Victoire <br> from Chad</h1>
+                <h1>Hi I'm <span class="nme"></span> <br> from Chad</h1>
             </div>
         </div>
     </div>
@@ -203,7 +203,7 @@
         </div>
 
         <div class="copyright">
-            <p>Copyright © Ndjekornom. Made with <i class="fa-solid fa-heart"></i> by Ndjek Tutor</p>
+            <p>Copyright © Ndjekornom. Made with <i class="fa-solid fa-heart"></i> by Ndjek Victoire</p>
         </div>
      </div>
 
@@ -236,7 +236,7 @@
     }
 </script>  
 <script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycby0pV12NEvbsGxjRgYe1EYea1uO_VxSxggzj7UOC9ORbb4XddFQYFOZAedTyAYyY6WW/exec'
+   
     const form = document.forms['submit-to-google-sheet'];
     const msg = document.getElementById("msg");
   
@@ -253,5 +253,30 @@
        .catch(error => console.error('Error!', error.message))
     })
   </script>
+  <script>
+    const text = document.querySelector(".nme");
+    const first = "NDJEKORNOM Victoire";
+
+    const load = (element, txt, i = 0) => {
+        if (i === 0) {
+            element.textContent = "";
+        }
+
+        element.textContent += txt[i];
+
+        if (i === txt.length - 1) {
+            // If it's the last character, wait for 12 seconds before clearing and restarting
+            setTimeout(() => {
+                load(element, txt);
+            }, 12000);
+            return;
+        }
+
+        setTimeout(() => load(element, txt, i + 1), 100);
+    };
+
+    load(text, first);
+</script>
+
 </body>
 </html>
